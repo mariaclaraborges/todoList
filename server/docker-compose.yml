@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres
+    container_name: tutorial
+    restart: always
+    ports:
+      - 40000:5432
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=database
+    volumes: 
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
